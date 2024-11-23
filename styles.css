@@ -47,6 +47,6 @@ li .action-buttons button {
     padding: 2px 5px;
 }
 
-span.archived {
-    text-decoration: line-through; /* Strike-through style */
+span.done {
+    text-decoration: line-through; /* Strike-through style for done items */
 }
