@@ -14,9 +14,10 @@ input, button {
     margin-top: 10px;
 }
 
-button {
-    font-size: 14px;
-    padding: 5px 10px;
+button.small-button {
+    font-size: 12px;
+    padding: 5px;
+    margin: 5px;
 }
 
 ul {
@@ -47,6 +48,6 @@ li .action-buttons button {
     padding: 2px 5px;
 }
 
-span.done {
-    text-decoration: line-through; /* Strike-through style for done items */
+span.completed {
+    text-decoration: line-through; /* Strike-through style for completed items */
 }

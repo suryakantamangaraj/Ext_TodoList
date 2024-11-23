@@ -8,10 +8,12 @@
     <h1>Todo List</h1>
     <input type="text" id="todoInput" placeholder="Add a new task">
     <button id="addButton">Add</button>
-    <button id="selectAllButton">Select All</button>
+    <div class="toolbar">
+        <button id="selectAllButton" class="small-button">Select All</button>
+        <button id="statusChangeButton" class="small-button">Change Status for Selected</button>
+    </div>
     <ul id="todoList"></ul>
     <button id="deleteSelectedButton">Delete Selected</button>
-    <button id="statusChangeButton">Change Status for Selected List</button>
     <ul id="doneList" style="display:none"></ul>
     <script src="popup.js"></script>
 </body>

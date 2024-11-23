@@ -4,7 +4,7 @@ document.getElementById('addButton').addEventListener('click', function() {
     if (todo) {
         chrome.storage.local.get(['todos'], function(data) {
             var todos = data.todos || [];
-            todos.push({ task: todo, done: false });
+            todos.push({ task: todo, completed: false });
             chrome.storage.local.set({ todos: todos }, function() {
                 renderTodos(todos);
                 todoInput.value = '';
@@ -14,9 +14,15 @@ document.getElementById('addButton').addEventListener('click', function() {
 });
 
 document.getElementById('selectAllButton').addEventListener('click', function() {
-    document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
-        checkbox.checked = true;
+    var selectAllButton = document.getElementById('selectAllButton');
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var allSelected = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = !allSelected;
     });
+
+    selectAllButton.textContent = allSelected ? 'Select All' : 'Unselect All';
 });
 
 document.getElementById('deleteSelectedButton').addEventListener('click', function() {
@@ -34,7 +40,7 @@ document.getElementById('statusChangeButton').addEventListener('click', function
     chrome.storage.local.get('todos', function(data) {
         var todos = data.todos.map(function(todo, index) {
             if (document.getElementById('checkbox-' + index).checked) {
-                todo.done = !todo.done;
+                todo.completed = !todo.completed;
             }
             return todo;
         });
@@ -54,16 +60,16 @@ function renderTodos(todos) {
         checkbox.id = 'checkbox-' + index;
         var span = document.createElement('span');
         span.textContent = todo.task;
-        if (todo.done) {
-            span.classList.add('done');
+        if (todo.completed) {
+            span.classList.add('completed');
         } else {
-            span.classList.remove('done');
+            span.classList.remove('completed');
         }
         var actionButtons = document.createElement('div');
         actionButtons.className = 'action-buttons';
 
         var statusButton = document.createElement('button');
-        statusButton.textContent = todo.done ? 'Ongoing' : 'Done';
+        statusButton.textContent = todo.completed ? 'Ongoing' : 'Completed';
         statusButton.addEventListener('click', function() {
             toggleStatusTask(index);
         });
@@ -97,7 +103,7 @@ function deleteTask(index) {
 function toggleStatusTask(index) {
     chrome.storage.local.get('todos', function(data) {
         var todos = data.todos;
-        todos[index].done = !todos[index].done;
+        todos[index].completed = !todos[index].completed;
         chrome.storage.local.set({ todos: todos }, function() {
             renderTodos(todos);
         });
