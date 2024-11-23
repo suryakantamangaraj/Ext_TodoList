@@ -88,13 +88,6 @@ function renderTodos(todos) {
             toggleStatusTask(index);
         });
 
-        var editButton = document.createElement('button');
-        editButton.className = 'edit-button';
-        editButton.textContent = 'Edit';
-        editButton.addEventListener('click', function() {
-            editTask(index, todo.task);
-        });
-
         var deleteButton = document.createElement('button');
         deleteButton.className = 'delete-button';
         deleteButton.textContent = 'Delete';
@@ -103,7 +96,6 @@ function renderTodos(todos) {
         });
 
         actionButtons.appendChild(statusButton);
-        actionButtons.appendChild(editButton);
         actionButtons.appendChild(deleteButton);
 
         li.appendChild(checkboxContainer);
@@ -139,19 +131,6 @@ function toggleStatusTask(index) {
             renderTodos(todos);
         });
     });
-}
-
-function editTask(index, currentTask) {
-    var newTask = prompt("Edit your task:", currentTask);
-    if (newTask !== null && newTask.trim() !== "") {
-        chrome.storage.local.get('todos', function(data) {
-            var todos = data.todos;
-            todos[index].task = newTask;
-            chrome.storage.local.set({ todos: todos }, function() {
-                renderTodos(todos);
-            });
-        });
-    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
