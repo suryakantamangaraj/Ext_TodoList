@@ -58,6 +58,8 @@ function renderTodos(todos) {
         var checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = 'checkbox-' + index;
+        checkbox.addEventListener('change', updateSelectAllButton);
+
         var span = document.createElement('span');
         span.textContent = todo.task;
         if (todo.completed) {
@@ -65,6 +67,7 @@ function renderTodos(todos) {
         } else {
             span.classList.remove('completed');
         }
+
         var actionButtons = document.createElement('div');
         actionButtons.className = 'action-buttons';
 
@@ -88,6 +91,14 @@ function renderTodos(todos) {
         li.appendChild(actionButtons);
         todoList.appendChild(li);
     });
+}
+
+function updateSelectAllButton() {
+    var selectAllButton = document.getElementById('selectAllButton');
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var allSelected = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+    selectAllButton.textContent = allSelected ? 'Unselect All' : 'Select All';
 }
 
 function deleteTask(index) {

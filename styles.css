@@ -22,6 +22,12 @@ button.small-button {
     width: auto;
 }
 
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
