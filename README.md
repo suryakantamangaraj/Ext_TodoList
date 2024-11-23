@@ -95,8 +95,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgements
 
 - Thanks to all contributors and users who have provided feedback and suggestions.
-
----
-
-Happy coding with Task Wizard! Keep your tasks organized and your productivity high.
-```
