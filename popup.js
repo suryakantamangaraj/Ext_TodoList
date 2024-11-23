@@ -82,18 +82,21 @@ function renderTodos(todos) {
         actionButtons.className = 'action-buttons';
 
         var statusButton = document.createElement('button');
+        statusButton.className = 'status-button';
         statusButton.textContent = todo.done ? 'Undo' : 'Done';
         statusButton.addEventListener('click', function() {
             toggleStatusTask(index);
         });
 
         var editButton = document.createElement('button');
+        editButton.className = 'edit-button';
         editButton.textContent = 'Edit';
         editButton.addEventListener('click', function() {
             editTask(index, todo.task);
         });
 
         var deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-button';
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', function() {
             deleteTask(index);

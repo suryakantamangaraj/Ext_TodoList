@@ -82,13 +82,29 @@ li .action-buttons {
 li .action-buttons button {
     font-size: 12px;
     padding: 2px 5px;
-    background-color: #ff6347; /* Match "Clear All" color */
-    color: white;
     border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-li .action-buttons button:hover {
-    background-color: #ff4500; /* Match "Clear All" hover color */
+li .action-buttons button.status-button,
+li .action-buttons button.edit-button {
+    background-color: #1e90ff;
+    color: white;
+}
+
+li .action-buttons button.status-button:hover,
+li .action-buttons button.edit-button:hover {
+    background-color: #1c86ee;
+}
+
+li .action-buttons button.delete-button {
+    background-color: #ff6347;
+    color: white;
+}
+
+li .action-buttons button.delete-button:hover {
+    background-color: #ff4500;
 }
 
 span.done {
