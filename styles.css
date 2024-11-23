@@ -5,6 +5,12 @@ body {
     width: 360px;
     height: 500px;
     box-sizing: border-box;
+    background-color: #f0f8ff;
+}
+
+h1 {
+    text-align: center;
+    color: #1e90ff;
 }
 
 .input-group {
@@ -16,12 +22,23 @@ input {
     flex: 1;
     padding: 10px;
     margin-right: 5px;
+    border: 1px solid #1e90ff;
+    border-radius: 4px;
 }
 
 button, .small-button {
     font-size: 12px;
     padding: 10px;
     margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+}
+
+button:hover, .small-button:hover {
+    background-color: #1c86ee;
 }
 
 .toolbar {
@@ -65,8 +82,31 @@ li .action-buttons {
 li .action-buttons button {
     font-size: 12px;
     padding: 2px 5px;
+    background-color: #f0f8ff;
+    color: #1e90ff;
+    border: 1px solid #1e90ff;
+}
+
+li .action-buttons button:hover {
+    background-color: #1e90ff;
+    color: white;
 }
 
 span.done {
     text-decoration: line-through;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#deleteSelectedButton, #clearAllButton {
+    background-color: #ff6347;
+}
+
+#deleteSelectedButton:hover, #clearAllButton:hover {
+    background-color: #ff4500;
 }

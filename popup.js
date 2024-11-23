@@ -155,5 +155,4 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.storage.local.get('todos', function(data) {
         renderTodos(data.todos || []);
     });
-}
-);
+});
