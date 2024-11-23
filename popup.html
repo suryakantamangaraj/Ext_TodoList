@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Todo List</title>
+    <title>Task Wizard</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Todo List</h1>
-    <input type="text" id="todoInput" placeholder="Add a new task">
-    <button id="addButton">Add</button>
+    <h1>Task Wizard: Organize, Edit, and Complete with Ease</h1>
+    <div class="input-group">
+        <input type="text" id="todoInput" placeholder="Add a new task">
+        <button id="addButton">Add</button>
+    </div>
     <div class="toolbar">
         <button id="selectAllButton" class="small-button">Select All</button>
         <button id="statusChangeButton" class="small-button" style="float: right;">Change Status for Selected</button>
     </div>
     <ul id="todoList"></ul>
     <button id="deleteSelectedButton">Delete Selected</button>
+    <button id="clearAllButton">Clear All</button>
     <ul id="doneList" style="display:none"></ul>
     <script src="popup.js"></script>
 </body>
