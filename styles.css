@@ -5,21 +5,40 @@ body {
     width: 360px;
     height: 500px;
     box-sizing: border-box;
+    background-color: #f0f8ff;
 }
 
-input, button {
-    display: block;
-    width: calc(100% - 20px);
+h1.center, h3.center {
+    text-align: center;
+    color: #1e90ff;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    flex: 1;
     padding: 10px;
-    margin-top: 10px;
+    margin-right: 5px;
+    border: 1px solid #1e90ff;
+    border-radius: 4px;
 }
 
-button.small-button {
+button, .small-button {
     font-size: 12px;
-    padding: 5px;
+    padding: 10px;
     margin: 5px;
-    display: inline-block;
-    width: auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+}
+
+button:hover, .small-button:hover {
+    background-color: #1c86ee;
 }
 
 .toolbar {
@@ -38,12 +57,21 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    position: relative;
 }
 
-li input[type="checkbox"] {
+li .checkbox-container {
+    position: absolute;
+    left: 10px;
+}
+
+li .task-content {
+    flex: 1;
+    margin-left: 30px;
     margin-right: 10px;
-    width: 20px;
-    height: 20px;
+    word-wrap: break-word;
 }
 
 li .action-buttons {
@@ -54,8 +82,46 @@ li .action-buttons {
 li .action-buttons button {
     font-size: 12px;
     padding: 2px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-span.completed {
-    text-decoration: line-through; /* Strike-through style for completed items */
+li .action-buttons button.status-button,
+li .action-buttons button.edit-button {
+    background-color: #1e90ff;
+    color: white;
+}
+
+li .action-buttons button.status-button:hover,
+li .action-buttons button.edit-button:hover {
+    background-color: #1c86ee;
+}
+
+li .action-buttons button.delete-button {
+    background-color: #ff6347;
+    color: white;
+}
+
+li .action-buttons button.delete-button:hover {
+    background-color: #ff4500;
+}
+
+span.done {
+    text-decoration: line-through;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#deleteSelectedButton, #clearAllButton {
+    background-color: #ff6347;
+}
+
+#deleteSelectedButton:hover, #clearAllButton:hover {
+    background-color: #ff4500;
 }
