@@ -61,12 +61,16 @@ function renderTodos(todos) {
     todoList.innerHTML = '';
     todos.forEach(function(todo, index) {
         var li = document.createElement('li');
+        var checkboxContainer = document.createElement('div');
+        checkboxContainer.className = 'checkbox-container';
         var checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = 'checkbox-' + index;
         checkbox.addEventListener('change', updateSelectAllButton);
+        checkboxContainer.appendChild(checkbox);
 
         var span = document.createElement('span');
+        span.className = 'task-content';
         span.textContent = `${index + 1}. ${todo.task}`;
         if (todo.done) {
             span.classList.add('done');
@@ -99,7 +103,7 @@ function renderTodos(todos) {
         actionButtons.appendChild(editButton);
         actionButtons.appendChild(deleteButton);
 
-        li.appendChild(checkbox);
+        li.appendChild(checkboxContainer);
         li.appendChild(span);
         li.appendChild(actionButtons);
         todoList.appendChild(li);
@@ -151,4 +155,5 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.storage.local.get('todos', function(data) {
         renderTodos(data.todos || []);
     });
-});
+}
+);
