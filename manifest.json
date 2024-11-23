@@ -1,14 +1,13 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Task Wizard",
     "version": "1.0",
     "description": "Simplify your task management with Task Wizard. Add, organize, and complete tasks effortlessly in your browser.",
     "permissions": ["storage"],
     "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+        "service_worker": "background.js"
     },
-    "browser_action": {
+    "action": {
         "default_popup": "popup.html",
         "default_icon": {
             "16": "icons/icon16.png",
@@ -20,17 +19,5 @@
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
-    },
-    "browser_action": {
-        "default_popup": "popup.html",
-        "default_icon": "icons/icon48.png",
-        "default_title": "Todo List"
-    },
-    "browser_action": {
-        "default_popup": "popup.html",
-        "default_icon": "icons/icon48.png",
-        "default_title": "Todo List",
-        "default_width": 400,
-        "default_height": 400
     }
 }
